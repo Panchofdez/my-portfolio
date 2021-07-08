@@ -13,7 +13,6 @@ import Underlining from "../../styles/underlining"
 import Button from "../../styles/button"
 import Icon from "../../components/icons"
 import { lightTheme, darkTheme } from "../../styles/theme"
-import HoverCards from "../hoverCards"
 
 const StyledSection = styled.section`
   width: 100%;

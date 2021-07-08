@@ -12,7 +12,7 @@ import Interests from "../components/sections/interests"
 import Projects from "../components/sections/projects"
 import Contact from "../components/sections/contact"
 import { seoTitleSuffix } from "../../config"
-import HoverCards from "../components/hoverCards"
+import Skills from "../components/sections/skills"
 import PersonalProjects from "../components/sections/personalProjects"
 
 const IndexPage = ({ data }) => {
@@ -39,7 +39,7 @@ const IndexPage = ({ data }) => {
         />
         <Hero content={data.hero.edges} />
         {/* Articles is populated via Medium RSS Feed fetch */}
-        <HoverCards content={data.interests.edges} />
+        <Skills content={data.interests.edges} />
         {/* <Articles /> */}
         <About content={data.about.edges} />
         {/* <Interests content={data.interests.edges} /> */}

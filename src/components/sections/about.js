@@ -18,11 +18,12 @@ const StyledSection = styled.section`
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
-    width: 100%;
-    height: 100%;
+    width: 100%
+    max-height: 30rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-wrap:wrap;
     @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
       flex-direction: row;
       justify-content: space-between;
@@ -33,59 +34,52 @@ const StyledContentWrapper = styled(ContentWrapper)`
       color: #fff;
     }
     .inner-wrapper {
-      min-width: 30rem;
+      width: 49%;
+      height:27rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: ${({ theme }) => theme.colors.background2};
+      background: #17141d;
       border-radius: ${({ theme }) => theme.borderRadius};
       color: #fff;
       z-index: 3;
       padding: 2rem;
+      margin-top:1rem;
+      @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+        height:25rem;
+      }
     }
     .text-content {
       width: 100%;
       max-width: 31.25rem;
     }
     .image-content {
-      width: 100%;
-      max-width: 35rem;
-      margin-top: 4rem;
+      width: 49%;
+      margin-top:1rem;
       margin-left: 0;
-      @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-        margin-left: 2rem;
-      }
-    }
-    .image-content2 {
-      width: 100%;
-      max-height: 20rem;
-      max-width: 40rem;
-      margin-top: 4rem;
-      margin-left: 0;
-      z-index: 2;
-      position: relative;
-      top: 200px;
+      overflow:hidden;
+      .about-author {
 
-      @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-        margin-left: 2rem;
+        height:27rem;
+        max-width: 100%;
+        border-radius: ${({ theme }) => theme.borderRadius};
+        box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
+        filter: grayscale(20%) contrast(1) brightness(90%);
+        transition: all 0.3s ease-out;
+        &:hover {
+          filter: grayscale(50%) contrast(1) brightness(90%);
+          transform: translate3d(0px, -0.125rem, 0px);
+          box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
+        }
+      }
+      @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+        height:25rem;
       }
     }
-    .about-author {
-      height: 100%;
-      width: 100%;
-      border-radius: ${({ theme }) => theme.borderRadius};
-      box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
-      filter: grayscale(20%) contrast(1) brightness(90%);
-      transition: all 0.3s ease-out;
-      &:hover {
-        filter: grayscale(50%) contrast(1) brightness(90%);
-        transform: translate3d(0px, -0.125rem, 0px);
-        box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
-      }
-    }
+
+    
   }
 `
-
 const About = ({ content }) => {
   const { frontmatter, body } = content[0].node
   const { isIntroDone } = useContext(Context).state
@@ -111,7 +105,7 @@ const About = ({ content }) => {
   return (
     <StyledSection id="about">
       <StyledContentWrapper>
-        <motion.div
+        <div
           className="inner-wrapper"
           ref={tRef}
           initial={{ opacity: 0, y: 20 }}
@@ -121,19 +115,8 @@ const About = ({ content }) => {
           <div className="text-content">
             <MDXRenderer>{body}</MDXRenderer>
           </div>
-        </motion.div>
-        <motion.div
-          className="image-content2"
-          ref={iRef}
-          initial={{ opacity: 0, x: 20 }}
-          animate={iControls}
-        >
-          <Img
-            className="about-author"
-            fluid={frontmatter.image.childImageSharp.fluid}
-          />
-        </motion.div>
-        <motion.div
+        </div>
+        <div
           className="image-content"
           ref={iRef}
           initial={{ opacity: 0, x: 20 }}
@@ -143,7 +126,29 @@ const About = ({ content }) => {
             className="about-author"
             fluid={frontmatter.image.childImageSharp.fluid}
           />
-        </motion.div>
+        </div>
+        <div
+          className="image-content"
+          ref={iRef}
+          initial={{ opacity: 0, x: 20 }}
+          animate={iControls}
+        >
+          <Img
+            className="about-author"
+            fluid={frontmatter.image.childImageSharp.fluid}
+          />
+        </div>
+        <div
+          className="image-content"
+          ref={iRef}
+          initial={{ opacity: 0, x: 20 }}
+          animate={iControls}
+        >
+          <Img
+            className="about-author"
+            fluid={frontmatter.image.childImageSharp.fluid}
+          />
+        </div>
       </StyledContentWrapper>
     </StyledSection>
   )

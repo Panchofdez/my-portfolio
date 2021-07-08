@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import "../styles/hoverCards.css"
-import ContentWrapper from "../styles/contentWrapper"
+import "../../styles/hoverCards.css"
+import ContentWrapper from "../../styles/contentWrapper"
 
 // Full Width Section
 const StyledSection = styled.section`
@@ -30,7 +30,7 @@ const StyledProjectContainer = styled.div`
 
 // Add more styled components here
 
-const HoverCards = ({ content }) => {
+const Skills = ({ content }) => {
   // Extract GraphQL data here
   const sectionDetails = content[0].node
 
@@ -122,8 +122,8 @@ const HoverCards = ({ content }) => {
   )
 }
 
-HoverCards.propTypes = {
+Skills.propTypes = {
   content: PropTypes.any.isRequired,
 }
 
-export default HoverCards
+export default Skills
