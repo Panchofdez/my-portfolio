@@ -147,7 +147,7 @@ export const pageQuery = graphql`
             emoji
             external
             github
-            screenshot {
+            screenshots {
               childImageSharp {
                 fluid(maxWidth: 400, quality: 90) {
                   ...GatsbyImageSharpFluid

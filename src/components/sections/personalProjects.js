@@ -229,38 +229,16 @@ const PersonalProjects = ({ content }) => {
                   )}
                 </div>
               </div>
-
-              <div className="card-image">
-                <Tilt>
-                  <Img
-                    className="screenshot"
-                    fluid={frontmatter.screenshot.childImageSharp.fluid}
-                  />
-                </Tilt>
-              </div>
-
-              <div className="card-image">
-                <Tilt>
-                  <Img
-                    className="screenshot"
-                    fluid={frontmatter.screenshot.childImageSharp.fluid}
-                  />
-                </Tilt>
-              </div>
-              <div className="card-image">
-                <Tilt>
-                  <Img
-                    className="screenshot"
-                    fluid={frontmatter.screenshot.childImageSharp.fluid}
-                  />
-                </Tilt>
-              </div>
-              {/* <div className="card-image">
-                <Img
-                  className="screenshot"
-                  fluid={frontmatter.screenshot.childImageSharp.fluid}
-                />
-              </div> */}
+              {frontmatter.screenshots.map((image, idx) => (
+                <div className="card-image" key={idx}>
+                  <Tilt>
+                    <Img
+                      className="screenshot"
+                      fluid={image.childImageSharp.fluid}
+                    />
+                  </Tilt>
+                </div>
+              ))}
             </StyledProjectDetails>
           )
         })}
