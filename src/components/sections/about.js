@@ -26,14 +26,22 @@ const StyledContentWrapper = styled(ContentWrapper)`
     @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
       flex-direction: row;
       justify-content: space-between;
+      align-items: start;
     }
     .section-title {
       margin-bottom: 2rem;
+      color: #fff;
     }
     .inner-wrapper {
+      min-width: 30rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background: ${({ theme }) => theme.colors.background2};
+      border-radius: ${({ theme }) => theme.borderRadius};
+      color: #fff;
+      z-index: 3;
+      padding: 2rem;
     }
     .text-content {
       width: 100%;
@@ -41,14 +49,30 @@ const StyledContentWrapper = styled(ContentWrapper)`
     }
     .image-content {
       width: 100%;
-      max-width: 18rem;
+      max-width: 35rem;
       margin-top: 4rem;
       margin-left: 0;
       @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
         margin-left: 2rem;
       }
     }
+    .image-content2 {
+      width: 100%;
+      max-height: 20rem;
+      max-width: 40rem;
+      margin-top: 4rem;
+      margin-left: 0;
+      z-index: 2;
+      position: relative;
+      top: 200px;
+
+      @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+        margin-left: 2rem;
+      }
+    }
     .about-author {
+      height: 100%;
+      width: 100%;
       border-radius: ${({ theme }) => theme.borderRadius};
       box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
       filter: grayscale(20%) contrast(1) brightness(90%);
@@ -97,6 +121,17 @@ const About = ({ content }) => {
           <div className="text-content">
             <MDXRenderer>{body}</MDXRenderer>
           </div>
+        </motion.div>
+        <motion.div
+          className="image-content2"
+          ref={iRef}
+          initial={{ opacity: 0, x: 20 }}
+          animate={iControls}
+        >
+          <Img
+            className="about-author"
+            fluid={frontmatter.image.childImageSharp.fluid}
+          />
         </motion.div>
         <motion.div
           className="image-content"

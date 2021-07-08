@@ -12,6 +12,8 @@ import Interests from "../components/sections/interests"
 import Projects from "../components/sections/projects"
 import Contact from "../components/sections/contact"
 import { seoTitleSuffix } from "../../config"
+import HoverCards from "../components/hoverCards"
+import PersonalProjects from "../components/sections/personalProjects"
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.index.edges[0].node
@@ -37,10 +39,12 @@ const IndexPage = ({ data }) => {
         />
         <Hero content={data.hero.edges} />
         {/* Articles is populated via Medium RSS Feed fetch */}
-        <Articles />
+        <HoverCards content={data.interests.edges} />
+        {/* <Articles /> */}
         <About content={data.about.edges} />
-        <Interests content={data.interests.edges} />
-        <Projects content={data.projects.edges} />
+        {/* <Interests content={data.interests.edges} /> */}
+
+        <PersonalProjects content={data.projects.edges} />
         <Contact content={data.contact.edges} />
       </Layout>
     </GlobalStateProvider>

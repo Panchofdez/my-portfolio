@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-portfolio-minimal",
+  "name": "my-portfolio",
   "description": "A clean, one-page portfolio using MDX",
   "version": "1.0.0",
   "author": "Konstantin Münster <mail@konstantin.digital>",
@@ -30,6 +30,7 @@
     "react-cookie-consent": "^6.2.3",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
+    "react-parallax-tilt": "^1.5.44",
     "react-visibility-sensor": "^5.1.1",
     "smooth-scroll": "^16.1.3",
     "styled-components": "^5.2.1",

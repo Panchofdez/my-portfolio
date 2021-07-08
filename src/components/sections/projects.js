@@ -13,6 +13,7 @@ import Underlining from "../../styles/underlining"
 import Button from "../../styles/button"
 import Icon from "../../components/icons"
 import { lightTheme, darkTheme } from "../../styles/theme"
+import HoverCards from "../hoverCards"
 
 const StyledSection = styled.section`
   width: 100%;
@@ -39,6 +40,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
     justify-content: center;
     padding-right: 0;
     padding-left: 0;
+
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
       padding-right: 2.5rem;
       padding-left: 2.5rem;
@@ -56,6 +58,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       flex-direction: row;
       margin-top: -2.5rem;
       padding: 2.5rem 2.5rem;
+
       overflow-x: scroll;
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
@@ -107,14 +110,15 @@ const StyledContentWrapper = styled(ContentWrapper)`
 
 const StyledProject = styled(motion.div)`
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   margin-top: 0;
   margin-bottom: 2rem;
   flex-shrink: 0;
   padding-right: 2.5rem;
   max-width: 20rem;
+  background: ${({ theme }) => theme.colors.background};
   @media (min-width: ${({ theme }) => theme.breakpoints.xs}) {
     max-width: 25rem;
     margin-top: 2rem;
@@ -198,6 +202,12 @@ const StyledProject = styled(motion.div)`
     }
   }
 `
+const StyledScreenshotsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
 
 const Projects = ({ content }) => {
   const { darkMode } = useContext(Context).state
@@ -262,7 +272,7 @@ const Projects = ({ content }) => {
           variants={tVariants}
           animate={tOnScreen ? "visible" : "hidden"}
         >
-          <h3 className="section-title">{sectionDetails.frontmatter.title}</h3>
+          {/* <h3 className="section-title">{sectionDetails.frontmatter.title}</h3> */}
           <div className="counter">
             {visibleProject} / {projects.length}
           </div>
@@ -271,80 +281,82 @@ const Projects = ({ content }) => {
           {projects.map((project, key) => {
             const { body, frontmatter } = project.node
             return (
-              <VisibilitySensor
-                key={key}
-                onChange={() => handleOnScreen(key + 1)}
-                partialVisibility={true}
-                minTopValue={100}
-              >
-                <StyledProject
-                  position={key + 1}
-                  variants={pVariants}
-                  animate={
-                    onScreen[frontmatter.position] ? "visible" : "hidden"
-                  }
+              <>
+                <VisibilitySensor
+                  key={key}
+                  onChange={() => handleOnScreen(key + 1)}
+                  partialVisibility={true}
+                  minTopValue={100}
                 >
-                  <div className="details">
-                    <div className="category">
-                      {frontmatter.emoji} {frontmatter.category}
-                    </div>
-                    <div className="title">{frontmatter.title}</div>
-                    <MDXRenderer>{body}</MDXRenderer>
-                    <div className="tags">
-                      {frontmatter.tags.map(tag => (
-                        <Underlining key={tag} highlight>
-                          {tag}
-                        </Underlining>
-                      ))}
-                    </div>
-                    <div className="links">
-                      {frontmatter.github && (
-                        <a
-                          href={frontmatter.github}
-                          target="_blank"
-                          rel="nofollow noopener noreferrer"
-                          aria-label="External Link"
-                        >
-                          <Icon
-                            name="github"
-                            color={
-                              darkMode
-                                ? darkTheme.colors.subtext
-                                : lightTheme.colors.subtext
-                            }
-                          />
-                        </a>
-                      )}
-                      {frontmatter.external && (
-                        <a
-                          href={frontmatter.external}
-                          target="_blank"
-                          rel="nofollow noopener noreferrer"
-                          aria-label="External Link"
-                        >
-                          <Icon
-                            name="external"
-                            color={
-                              darkMode
-                                ? darkTheme.colors.subtext
-                                : lightTheme.colors.subtext
-                            }
-                          />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                  {/* If image in viewport changes, update state accordingly */}
-                  <VisibilitySensor
-                    onChange={() => setVisibleProject(frontmatter.position)}
+                  <StyledProject
+                    position={key + 1}
+                    variants={pVariants}
+                    animate={
+                      onScreen[frontmatter.position] ? "visible" : "hidden"
+                    }
                   >
-                    <Img
-                      className="screenshot"
-                      fluid={frontmatter.screenshot.childImageSharp.fluid}
-                    />
-                  </VisibilitySensor>
-                </StyledProject>
-              </VisibilitySensor>
+                    <div className="details">
+                      <div className="category">
+                        {frontmatter.emoji} {frontmatter.category}
+                      </div>
+                      <div className="title">{frontmatter.title}</div>
+                      <MDXRenderer>{body}</MDXRenderer>
+                      <div className="tags">
+                        {frontmatter.tags.map(tag => (
+                          <Underlining key={tag} highlight>
+                            {tag}
+                          </Underlining>
+                        ))}
+                      </div>
+                      <div className="links">
+                        {frontmatter.github && (
+                          <a
+                            href={frontmatter.github}
+                            target="_blank"
+                            rel="nofollow noopener noreferrer"
+                            aria-label="External Link"
+                          >
+                            <Icon
+                              name="github"
+                              color={
+                                darkMode
+                                  ? darkTheme.colors.subtext
+                                  : lightTheme.colors.subtext
+                              }
+                            />
+                          </a>
+                        )}
+                        {frontmatter.external && (
+                          <a
+                            href={frontmatter.external}
+                            target="_blank"
+                            rel="nofollow noopener noreferrer"
+                            aria-label="External Link"
+                          >
+                            <Icon
+                              name="external"
+                              color={
+                                darkMode
+                                  ? darkTheme.colors.subtext
+                                  : lightTheme.colors.subtext
+                              }
+                            />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                    {/* If image in viewport changes, update state accordingly */}
+                    <VisibilitySensor
+                      onChange={() => setVisibleProject(frontmatter.position)}
+                    >
+                      <Img
+                        className="screenshot"
+                        fluid={frontmatter.screenshot.childImageSharp.fluid}
+                      />
+                    </VisibilitySensor>
+                  </StyledProject>
+                </VisibilitySensor>
+              </>
             )
           })}
         </div>

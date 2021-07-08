@@ -25,9 +25,9 @@ const StyledContentWrapper = styled(ContentWrapper)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 6rem;
+    margin-bottom: 1rem;
     @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-      margin-bottom: 4rem;
+      margin-bottom: 1rem;
     }
     .greetings {
       display: flex;
@@ -110,7 +110,7 @@ const Hero = ({ content }) => {
           data-testid="animated-heading"
         >
           <h1 className="title">
-            <div className="greetings">
+            {/* <div className="greetings">
               {frontmatter.greetings}
               <motion.div
                 animate={eControls}
@@ -121,7 +121,7 @@ const Hero = ({ content }) => {
                   fluid={frontmatter.icon.childImageSharp.fluid}
                 />
               </motion.div>
-            </div>
+            </div> */}
             {frontmatter.title}
           </h1>
           <h2 className="subtitle">

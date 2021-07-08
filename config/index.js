@@ -1,6 +1,6 @@
 module.exports = {
   //-- SITE SETTINGS -----
-  author: "@konstantinmuenster",
+  author: "Pancho Fernandez",
   siteTitle: "Gatsby Starter Portfolio Minimal",
   siteShortTitle: "Gatsby", // Used as logo text in header, footer, and splash screen
   siteDescription:
@@ -16,11 +16,13 @@ module.exports = {
   colors: {
     lightTheme: {
       primary: "#000000",
-      secondary: "#FFF4D9",
-      tertiary: "#F2F2F2",
+      secondary: "#CDF3E1",
+      tertiary: "#FFF4D9",
+
       text: "#000000",
       subtext: "#555555",
       background: "#FFFFFF",
+      background2: "#17141d",
       card: "#FFFFFF",
       scrollBar: "rgba(0, 0, 0, 0.5)",
       boxShadow: "rgba(0, 0, 0, 0.16)",
@@ -87,7 +89,11 @@ module.exports = {
         url: "/#about",
       },
       {
-        name: "Features",
+        name: "Skills",
+        url: "/#interests",
+      },
+      {
+        name: "Projects",
         url: "/#projects",
       },
       {
@@ -98,7 +104,7 @@ module.exports = {
     button: {
       useFileName: true,
       name: "Resume",
-      fileName: "goldenpuppy.pdf", // the file has to be placed inside the static folder at the root level
+      fileName: "panchofernandez-coop-resume.pdf", // the file has to be placed inside the static folder at the root level
       url: "", // if useFileName=false, you can set an anchor link here and use the button for navigational purposes
     },
   },

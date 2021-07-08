@@ -10,6 +10,7 @@ import { parseDate } from "../../utils"
 import { mediumRssFeed, shownArticles } from "../../../config"
 // import { rssFeed, shownArticles } from "../../../config"
 import { lightTheme, darkTheme } from "../../styles/theme"
+import Tilt from "react-parallax-tilt"
 
 const StyledSection = motion.custom(styled.section`
   width: 100%;
@@ -38,7 +39,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
     .articles {
       display: flex;
       justify-content: flex-start;
-      overflow-x: scroll;
+      overflow-x: hidden;
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
       margin: -2rem 0 0 0;
@@ -150,28 +151,30 @@ const Articles = () => {
       animate={articlesControls}
     >
       <StyledContentWrapper>
-        <h3 className="section-title">Latest Articles</h3>
+        {/* <h3 className="section-title">Interests & Skills</h3> */}
         <div className="articles">
           {articles
             ? articles.map(item => (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                  title={item.title}
-                  aria-label={item.link}
-                  key={item.link}
-                >
-                  <div className="card">
-                    <span className="category">
-                      <Underlining color="tertiary" hoverColor="secondary">
-                        {item.categories[2]}
-                      </Underlining>
-                    </span>
-                    <h4 className="title">{item.title}</h4>
-                    <span className="date">{parseDate(item.pubDate)}</span>
-                  </div>
-                </a>
+                <Tilt key={item.link}>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    title={item.title}
+                    aria-label={item.link}
+                    key={item.link}
+                  >
+                    <div className="card">
+                      <span className="category">
+                        <Underlining color="tertiary" hoverColor="secondary">
+                          {item.categories[2]}
+                        </Underlining>
+                      </span>
+                      <h4 className="title">{item.title}</h4>
+                      <span className="date">{parseDate(item.pubDate)}</span>
+                    </div>
+                  </a>
+                </Tilt>
               ))
             : [...Array(MAX_ARTICLES <= 3 ? MAX_ARTICLES : 3)].map((i, key) => (
                 <div className="card" key={key}>
