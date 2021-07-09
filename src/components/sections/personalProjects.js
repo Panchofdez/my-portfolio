@@ -127,6 +127,7 @@ const StyledProjectDetails = styled.div`
       margin-top: 0;
     }
     .screenshot {
+      object-fit: cover;
       flex: 1;
       width: 100%;
       max-width: 25rem;

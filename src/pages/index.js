@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => {
     // will check the user's preferences and switch to dark mode if needed
     darkMode: false,
   }
-
+  console.log("DATA", data)
   return (
     <GlobalStateProvider initialState={globalState}>
       <Layout>
@@ -116,13 +116,8 @@ export const pageQuery = graphql`
             shownItems
             interests {
               name
-              icon {
-                childImageSharp {
-                  fixed(width: 20, height: 20, quality: 90) {
-                    ...GatsbyImageSharpFixed
-                  }
-                }
-              }
+              description
+              technologies
             }
           }
           frontmatter {

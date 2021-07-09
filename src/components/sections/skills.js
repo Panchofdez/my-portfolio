@@ -33,7 +33,7 @@ const StyledProjectContainer = styled.div`
 const Skills = ({ content }) => {
   // Extract GraphQL data here
   const sectionDetails = content[0].node
-
+  const { frontmatter, exports } = sectionDetails
   return (
     <StyledSection id="___SectionHashId___">
       <StyledContentWrapper>
@@ -42,79 +42,26 @@ const Skills = ({ content }) => {
           <div className="card first">
             <div className="card-author">
               <footer className="card-header ">
-                <h1>Personal Projects</h1>
+                <h1>{frontmatter.title}</h1>
               </footer>
             </div>
           </div>
           <section className="card-list">
-            <article className="card">
-              <header className="card-header">
-                <p>April 21th 2021</p>
-                <h2>Never forget</h2>
-              </header>
-              <div className="card-author">
-                <a className="author-avatar" href="#">
-                  <img src="https://avatars.githubusercontent.com/u/61791716?v=4" />
-                </a>
-                <svg className="half-circle" viewBox="0 0 106 57">
-                  <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
-                </svg>
-
-                <div className="author-name">
-                  <div className="author-name-prefix">Author</div>
-                  Anmol Raj
+            {exports.interests.map((interest, idx) => (
+              <article className="card" key={idx}>
+                <header className="card-header">
+                  <h2>{interest.name}</h2>
+                  <p>{interest.description}</p>
+                </header>
+                <div className="tags">
+                  {interest.technologies.map((tech, idx) => (
+                    <a href="#" key={idx}>
+                      {tech}
+                    </a>
+                  ))}
                 </div>
-              </div>
-              <div className="tags">
-                <a href="#">html</a>
-                <a href="#">css</a>
-                <a href="#">web-dev</a>
-              </div>
-            </article>
-            <article className="card">
-              <header className="card-header">
-                <p>Web Application</p>
-                <h2>Creativ</h2>
-                <p>
-                  A quick and easy way to create a portfolio/visual resume for
-                  creative professionals
-                </p>
-              </header>
-
-              <div className="tags">
-                <a href="#">html</a>
-                <a href="#">css</a>
-              </div>
-            </article>
-
-            <article className="card">
-              <header className="card-header">
-                <p>Mobile Application</p>
-                <h2>PiggiBank</h2>
-                <p>
-                  A friendly budgeting app with a clean and uncluttered
-                  interface that will help you save money.
-                </p>
-              </header>
-
-              <div className="tags">
-                <a href="#">html</a>
-                <a href="#">css</a>
-              </div>
-            </article>
-
-            <article className="card">
-              <header className="card-header">
-                <p>Mobile Application</p>
-                <h2>Tavos</h2>
-                <p>A planner that optimizes your time</p>
-              </header>
-
-              <div className="tags">
-                <a href="#">html</a>
-                <a href="#">css</a>
-              </div>
-            </article>
+              </article>
+            ))}
           </section>
         </StyledProjectContainer>
       </StyledContentWrapper>
