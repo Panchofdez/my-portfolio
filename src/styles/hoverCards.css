@@ -82,7 +82,7 @@ a {
 }
 
 .card-header h2:hover {
-  background: linear-gradient(to right, #fc4a1a, #f7b733);
+  background: linear-gradient(to right, #5a7d7c, #cdf3e1);
   text-shadow: none;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -114,7 +114,7 @@ a {
   margin: 16px 10px;
 }
 .first {
-  background: linear-gradient(#fff4d9, #ffe8ad);
+  background: linear-gradient(#5a7d7c, #cdf3e1);
 }
 .author-name {
   grid-area: auto;

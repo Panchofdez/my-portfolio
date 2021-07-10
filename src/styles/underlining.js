@@ -7,7 +7,7 @@ const Underlining = styled.span`
   transition: box-shadow 0.3s ease-out;
   &:hover {
     box-shadow: inset 0 ${({ big }) => (big ? "-2rem" : "-1rem")} 0
-      ${({ theme }) => theme.colors.secondary};
+      ${({ theme }) => theme.colors.tertiary};
   }
 `
 

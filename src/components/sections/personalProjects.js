@@ -59,8 +59,8 @@ const StyledProjectDetails = styled.div`
     width: 100%;
     flex: 1;
     min-height: 25rem;
-    min-width: 18rem;
-    max-width: 25rem;
+    min-width: 20rem;
+    max-width: 30rem;
     display: flex;
     flex-direction: column;
     margin-top: 3rem;
@@ -130,7 +130,7 @@ const StyledProjectDetails = styled.div`
       object-fit: cover;
       flex: 1;
       width: 100%;
-      max-width: 25rem;
+      max-width: 28rem;
       min-height: 25rem;
       height: 100%;
       border-radius: ${({ theme }) => theme.borderRadius};
@@ -188,7 +188,7 @@ const PersonalProjects = ({ content }) => {
   return (
     <StyledSection id="___SectionHashId___">
       <StyledContentWrapper>
-        <h3 style={{ marginBottom: 1 }}>Personal Projects</h3>
+        <h2 style={{ marginBottom: 1 }}>Personal Projects</h2>
         {/* ____SectionContent____ */}
         {projects.map((project, key) => {
           const { body, frontmatter } = project.node

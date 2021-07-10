@@ -30,12 +30,12 @@ const StyledContentWrapper = styled(ContentWrapper)`
       align-items: start;
     }
     .section-title {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       color: #fff;
     }
     .inner-wrapper {
       width: 49%;
-      height:27rem;
+      height:28rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -43,7 +43,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       border-radius: ${({ theme }) => theme.borderRadius};
       color: #fff;
       z-index: 3;
-      padding: 2rem;
+      padding: 3rem;
       margin-top:1rem;
       @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
         height:25rem;
@@ -57,10 +57,10 @@ const StyledContentWrapper = styled(ContentWrapper)`
       width: 49%;
       margin-top:1rem;
       margin-left: 0;
-      overflow:hidden;
-      .about-author {
 
-        height:27rem;
+      .about-author {
+        overflow:hidden;
+        height:28rem;
         max-width: 100%;
         border-radius: ${({ theme }) => theme.borderRadius};
         box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
@@ -116,39 +116,11 @@ const About = ({ content }) => {
             <MDXRenderer>{body}</MDXRenderer>
           </div>
         </div>
-        <div
-          className="image-content"
-          ref={iRef}
-          initial={{ opacity: 0, x: 20 }}
-          animate={iControls}
-        >
-          <Img
-            className="about-author"
-            fluid={frontmatter.image.childImageSharp.fluid}
-          />
-        </div>
-        <div
-          className="image-content"
-          ref={iRef}
-          initial={{ opacity: 0, x: 20 }}
-          animate={iControls}
-        >
-          <Img
-            className="about-author"
-            fluid={frontmatter.image.childImageSharp.fluid}
-          />
-        </div>
-        <div
-          className="image-content"
-          ref={iRef}
-          initial={{ opacity: 0, x: 20 }}
-          animate={iControls}
-        >
-          <Img
-            className="about-author"
-            fluid={frontmatter.image.childImageSharp.fluid}
-          />
-        </div>
+        {frontmatter.images.map((img, idx) => (
+          <div className="image-content" key={idx}>
+            <Img className="about-author" fluid={img.childImageSharp.fluid} />
+          </div>
+        ))}
       </StyledContentWrapper>
     </StyledSection>
   )
