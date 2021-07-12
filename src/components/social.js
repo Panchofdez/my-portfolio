@@ -25,6 +25,10 @@ const StyledSocialWrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding-right: 0;
+    width: 100%;
+  }
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     overflow: visible;
   }

@@ -28,9 +28,31 @@ const StyledProjectContainer = styled.div`
   color: #fff;
   margin-top: 2rem;
   margin-bottom: 2rem;
-`
 
-// Add more styled components here
+  .card-list {
+    display: flex;
+    padding: 1rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      overflow-x: scroll;
+    }
+    ::-webkit-scrollbar {
+      width: 30rem;
+      height: 0.5rem;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to right, #cdf3e1, #10422a);
+      border-radius: 10px;
+      box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
+        inset -2px -2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    ::-webkit-scrollbar-track {
+      background: ${({ theme }) => theme.colors.background};
+    }
+  }
+`
 
 const Skills = ({ content }) => {
   // Extract GraphQL data here
@@ -41,14 +63,14 @@ const Skills = ({ content }) => {
       <StyledContentWrapper>
         {/* ____SectionContent____ */}
         <StyledProjectContainer>
-          <div className="card first">
-            <div className="card-author">
-              <footer className="card-header ">
-                <h1>{frontmatter.title}</h1>
-              </footer>
-            </div>
-          </div>
           <section className="card-list">
+            <article className="card first">
+              <div className="card-author">
+                <footer className="card-header ">
+                  <h1>{frontmatter.title}</h1>
+                </footer>
+              </div>
+            </article>
             {exports.interests.map((interest, idx) => (
               <article className="card" key={idx}>
                 <header className="card-header">

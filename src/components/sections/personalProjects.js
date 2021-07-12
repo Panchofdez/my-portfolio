@@ -46,11 +46,14 @@ const StyledProjectDetails = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
   padding-left: 1rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin: 0;
+  }
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 30rem;
+    height: 0.5rem;
   }
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(to right, #cdf3e1, #10422a);
@@ -67,16 +70,13 @@ const StyledProjectDetails = styled.div`
     height: 100%;
     width: 100%;
     flex: 1;
-    min-height: 25rem;
     min-width: 20rem;
-    max-width: 30rem;
+    min-height: 30rem;
     display: flex;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 0;
     margin-right: 2rem;
-    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-      margin-top: 0;
-    }
+
     .category {
       font-size: 0.875rem;
       line-height: 1rem;
@@ -125,12 +125,38 @@ const StyledProjectDetails = styled.div`
     flex: 1;
     height: 100%;
     width: 100%;
-    min-height: 25rem;
-    min-width: 18rem;
-    max-width: 25rem;
+
     display: flex;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-right: 2rem;
+    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+      margin-top: 0;
+    }
+    .screenshot {
+      object-fit: cover;
+      flex: 1;
+      height: 30rem;
+      min-width: 20rem;
+      border-radius: ${({ theme }) => theme.borderRadius};
+      box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
+      transition: all 0.3s ease-out;
+      &:hover {
+        transform: translate3d(0px, -0.125rem, 0px);
+        box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
+      }
+      @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+        height: 30rem;
+        width: 20rem;
+      }
+    }
+  }
+  .card-image-pc {
+    background: white;
+    flex: 1;
+    max-height: 25rem;
+    min-width: 25rem;
+    display: flex;
+    flex-direction: column;
     margin-right: 2rem;
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
       margin-top: 0;
@@ -139,8 +165,6 @@ const StyledProjectDetails = styled.div`
       object-fit: cover;
       flex: 1;
       width: 100%;
-      max-width: 28rem;
-      min-height: 25rem;
       height: 100%;
       border-radius: ${({ theme }) => theme.borderRadius};
       box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
@@ -149,39 +173,7 @@ const StyledProjectDetails = styled.div`
         transform: translate3d(0px, -0.125rem, 0px);
         box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
       }
-      @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-        height: 18.75rem;
-      }
-    }
-  }
-  .card-image-pc {
-    background: white;
-    flex: 1;
-    height: 100%;
-    width: 100%;
-    min-width: 22rem;
-    max-width: 28rem;
-    display: flex;
-    flex-direction: column;
-    margin-top: 3rem;
-    margin-right: 2rem;
-    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-      margin-top: 0;
-    }
-    .screenshot {
-      flex: 1;
-      width: 100%;
-      max-width: 25rem;
-      height: 100%;
-      border-radius: ${({ theme }) => theme.borderRadius};
-      box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.16);
-      transition: all 0.3s ease-out;
-      &:hover {
-        transform: translate3d(0px, -0.125rem, 0px);
-        box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
-      }
-      @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-        height: 18.75rem;
+      @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
       }
     }
   }
@@ -260,6 +252,7 @@ const PersonalProjects = ({ content }) => {
             justifyContent: "center",
             display: "flex",
             flexDirection: "row",
+            marginTop: "2rem",
           }}
         >
           <a

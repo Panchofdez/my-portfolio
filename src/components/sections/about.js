@@ -18,7 +18,7 @@ const StyledSection = styled.section`
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
     width: 100%
-    max-height: 50rem;
+    max-height: 30rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,7 +36,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
     }
     .inner-wrapper {
       width: 49%;
-      height:28rem;
+      min-height:28rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -47,7 +47,8 @@ const StyledContentWrapper = styled(ContentWrapper)`
       padding: 3rem;
       margin-top:1rem;
       @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-        height:25rem;
+        width:100%;
+        padding:1.5rem;
       }
       &:hover {
         transform: translate3d(0px, -0.125rem, 0px);
@@ -56,7 +57,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
     }
     .text-content {
       width: 100%;
-      max-width: 31.25rem;
+  
     }
     .image-content {
       width: 49%;
@@ -80,6 +81,8 @@ const StyledContentWrapper = styled(ContentWrapper)`
     
       @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
         height:25rem;
+        width:100%;
+        margin-bottom:3rem;
       }
     }
 
