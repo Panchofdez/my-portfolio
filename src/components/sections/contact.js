@@ -93,7 +93,6 @@ const Contact = ({ content }) => {
             </a>
           </div>
         </div>
-        <Social width="9rem" padding="0.5rem 1.25rem" withIcon />
       </StyledContentWrapper>
     </StyledSection>
   )

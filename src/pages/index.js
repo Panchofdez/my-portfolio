@@ -86,6 +86,13 @@ export const pageQuery = graphql`
                 }
               }
             }
+            profileImage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

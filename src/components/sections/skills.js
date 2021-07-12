@@ -26,6 +26,8 @@ const StyledProjectContainer = styled.div`
   flex-direction: row;
   align-items: center;
   color: #fff;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 `
 
 // Add more styled components here

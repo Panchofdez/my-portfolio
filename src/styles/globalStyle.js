@@ -82,13 +82,6 @@ const GlobalStyle = createGlobalStyle`
         line-height: 2.25rem;
         color: ${({ theme }) => theme.colors.primary};
         margin-bottom: 3rem;
-        :hover {
-            background: linear-gradient(to right, #5a7d7c, #cdf3e1);
-            text-shadow: none;
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-          }
     }
 
     h4 {

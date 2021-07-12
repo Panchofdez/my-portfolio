@@ -8,6 +8,7 @@ import Img from "gatsby-image"
 import Icon from "../../components/icons"
 import { lightTheme, darkTheme } from "../../styles/theme"
 import Tilt from "react-parallax-tilt"
+import Button from "../../styles/button"
 
 // Full Width Section
 const StyledSection = styled.section`
@@ -15,6 +16,14 @@ const StyledSection = styled.section`
   height: auto;
   background: ${({ theme }) => theme.colors.background};
   margin-top: 6rem;
+  .btn {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+      margin: 0 auto;
+    }
+  }
 `
 
 // Fixed width container for content stuff
@@ -177,6 +186,7 @@ const StyledProjectDetails = styled.div`
     }
   }
 `
+
 const StyledProjectCard = styled.div``
 
 // Add more styled components here
@@ -244,6 +254,26 @@ const PersonalProjects = ({ content }) => {
           )
         })}
       </StyledContentWrapper>
+      {sectionDetails.frontmatter.buttonVisible && (
+        <div
+          style={{
+            justifyContent: "center",
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <a
+            href={sectionDetails.frontmatter.buttonUrl}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            aria-label="External Link"
+          >
+            <Button className="btn" type="button" textAlign="center" center>
+              {sectionDetails.frontmatter.buttonText}
+            </Button>
+          </a>
+        </div>
+      )}
     </StyledSection>
   )
 }

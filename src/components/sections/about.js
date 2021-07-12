@@ -13,17 +13,18 @@ const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  margin-top: 4rem;
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
     width: 100%
-    max-height: 30rem;
+    max-height: 50rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-wrap:wrap;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
       flex-direction: row;
       justify-content: space-between;
@@ -47,6 +48,10 @@ const StyledContentWrapper = styled(ContentWrapper)`
       margin-top:1rem;
       @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
         height:25rem;
+      }
+      &:hover {
+        transform: translate3d(0px, -0.125rem, 0px);
+        box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
       }
     }
     .text-content {
@@ -72,6 +77,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
           box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
         }
       }
+    
       @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
         height:25rem;
       }

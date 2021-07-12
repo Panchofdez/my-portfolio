@@ -36,6 +36,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
     }
     .emoji {
       margin-left: 0.75rem;
+      margin-right: 0.75rem;
       width: 2.2rem;
       height: 2.2rem;
       @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
@@ -43,6 +44,11 @@ const StyledContentWrapper = styled(ContentWrapper)`
         width: 3rem;
         height: 3rem;
       }
+    }
+    .profile-pic {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
     }
     .title {
       margin-bottom: 1.5rem;
@@ -104,13 +110,17 @@ const Hero = ({ content }) => {
   return (
     <StyledSection id="hero">
       <StyledContentWrapper>
+        <Img
+          className="profile-pic"
+          fluid={frontmatter.profileImage.childImageSharp.fluid}
+        />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={gControls}
           data-testid="animated-heading"
         >
           <h1 className="title">
-            {/* <div className="greetings">
+            <div className="greetings">
               {frontmatter.greetings}
               <motion.div
                 animate={eControls}
@@ -121,8 +131,8 @@ const Hero = ({ content }) => {
                   fluid={frontmatter.icon.childImageSharp.fluid}
                 />
               </motion.div>
-            </div> */}
-            {frontmatter.title}
+              {frontmatter.title}
+            </div>
           </h1>
           <h2 className="subtitle">
             {frontmatter.subtitlePrefix}{" "}
@@ -134,8 +144,14 @@ const Hero = ({ content }) => {
             <MDXRenderer>{body}</MDXRenderer>
           </div>
         </motion.div>
+
         <motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
-          <Social fontSize=".95rem" padding=".3rem 1.25rem" width="auto" />
+          <Social
+            fontSize=".95rem"
+            padding=".3rem 1.25rem"
+            width="auto"
+            withIcon
+          />
         </motion.div>
       </StyledContentWrapper>
     </StyledSection>
