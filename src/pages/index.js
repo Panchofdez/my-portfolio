@@ -6,10 +6,7 @@ import GlobalStateProvider from "../context/provider"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/sections/hero"
-import Articles from "../components/sections/articles"
 import About from "../components/sections/about"
-import Interests from "../components/sections/interests"
-import Projects from "../components/sections/projects"
 import Contact from "../components/sections/contact"
 import { seoTitleSuffix } from "../../config"
 import Skills from "../components/sections/skills"
@@ -26,7 +23,7 @@ const IndexPage = ({ data }) => {
     // will check the user's preferences and switch to dark mode if needed
     darkMode: false,
   }
-  console.log("DATA", data)
+
   return (
     <GlobalStateProvider initialState={globalState}>
       <Layout>
@@ -38,11 +35,10 @@ const IndexPage = ({ data }) => {
           }
         />
         <Hero content={data.hero.edges} />
-        {/* Articles is populated via Medium RSS Feed fetch */}
+
         <Skills content={data.interests.edges} />
-        {/* <Articles /> */}
+
         <About content={data.about.edges} />
-        {/* <Interests content={data.interests.edges} /> */}
 
         <PersonalProjects content={data.projects.edges} />
         <Contact content={data.contact.edges} />
