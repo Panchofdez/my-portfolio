@@ -89,13 +89,6 @@ export const pageQuery = graphql`
                 }
               }
             }
-            graphic {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
           }
         }
       }

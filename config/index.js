@@ -30,8 +30,8 @@ module.exports = {
     },
     darkTheme: {
       primary: "#FAFAFA",
-      secondary: "#CDF3E1",
-      tertiary: "#5a7d7c",
+      secondary: "#5a7d7c",
+      tertiary: "#CDF3E1",
       text: "rgba(255, 255, 255, 0.87)",
       subtext: "#AAAAAA",
       background: "#121212",

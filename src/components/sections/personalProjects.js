@@ -255,7 +255,7 @@ const PersonalProjects = ({ content }) => {
             justifyContent: "center",
             display: "flex",
             flexDirection: "row",
-            marginTop: "2rem",
+            marginTop: "3rem",
           }}
         >
           <a

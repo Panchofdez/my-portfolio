@@ -149,4 +149,5 @@ h1 {
   -webkit-box-decoration-break: clone;
   background-clip: text;
   border-color: white;
+  cursor: default;
 }
