@@ -64,13 +64,17 @@ const StyledHeroDiv = styled.div`
     }
   }
   .title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
       margin-bottom: 0;
     }
   }
   .subtitle {
-    margin-top: -0.75rem;
+    margin-top: 0.75rem;
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
   .description {
     font-size: 1.125rem;
@@ -170,12 +174,12 @@ const Hero = ({ content }) => {
               </span>
               <span> {frontmatter.title}</span>
             </h1>
-            <h2 className="subtitle">
+            <h3 className="subtitle">
               {frontmatter.subtitlePrefix}{" "}
               <AnimatedUnderlining animate={uControls} big>
                 {frontmatter.subtitle}
               </AnimatedUnderlining>
-            </h2>
+            </h3>
             <div className="description">
               <MDXRenderer>{body}</MDXRenderer>
             </div>
