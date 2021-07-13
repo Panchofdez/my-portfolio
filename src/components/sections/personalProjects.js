@@ -182,8 +182,6 @@ const StyledProjectDetails = styled.div`
   }
 `
 
-const StyledProjectCard = styled.div``
-
 // Add more styled components here
 
 const PersonalProjects = ({ content }) => {
