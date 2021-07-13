@@ -8,5 +8,8 @@ const ContentWrapper = styled.div`
     max-width: ${({ theme }) => theme.pageWidthSmall};
     padding: 0 1rem;
   }
+  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+    max-width: ${({ theme }) => theme.pageWidthLarge};
+  }
 `
 export default ContentWrapper

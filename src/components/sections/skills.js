@@ -59,7 +59,7 @@ const Skills = ({ content }) => {
   const sectionDetails = content[0].node
   const { frontmatter, exports } = sectionDetails
   return (
-    <StyledSection id="___SectionHashId___">
+    <StyledSection id="skills">
       <StyledContentWrapper>
         {/* ____SectionContent____ */}
         <StyledProjectContainer>

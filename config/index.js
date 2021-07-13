@@ -30,11 +30,12 @@ module.exports = {
     },
     darkTheme: {
       primary: "#FAFAFA",
-      secondary: "#2A2926",
-      tertiary: "#252525",
+      secondary: "#CDF3E1",
+      tertiary: "#5a7d7c",
       text: "rgba(255, 255, 255, 0.87)",
       subtext: "#AAAAAA",
       background: "#121212",
+      background2: "#17141d",
       card: "#1C1C1C",
       scrollBar: "rgba(255, 255, 255, 0.5)",
       boxShadow: "rgba(0, 0, 0, 0.16)",
@@ -84,13 +85,14 @@ module.exports = {
   navLinks: {
     menu: [
       {
+        name: "Skills",
+        url: "/#skills",
+      },
+      {
         name: "About Me",
         url: "/#about",
       },
-      {
-        name: "Skills",
-        url: "/#interests",
-      },
+
       {
         name: "Projects",
         url: "/#projects",

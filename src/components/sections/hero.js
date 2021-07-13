@@ -23,49 +23,84 @@ const StyledContentWrapper = styled(ContentWrapper)`
     height: 100%;
     min-height: 60vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 1rem;
+  }
+`
+const StyledHeroDiv = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 0.5rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: 100%;
+  }
+  .greetings {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .emoji {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    width: 2.2rem;
+    height: 2.2rem;
     @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-      margin-bottom: 1rem;
+      margin-left: 1rem;
+      width: 3rem;
+      height: 3rem;
     }
-    .greetings {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
+  }
+  .profile-pic {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+      display: none;
     }
-    .emoji {
-      margin-left: 0.75rem;
-      margin-right: 0.75rem;
-      width: 2.2rem;
-      height: 2.2rem;
-      @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-        margin-left: 1rem;
-        width: 3rem;
-        height: 3rem;
-      }
+  }
+  .title {
+    margin-bottom: 1.5rem;
+    @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+      margin-bottom: 0;
     }
-    .profile-pic {
-      width: 10rem;
-      height: 10rem;
-      border-radius: 50%;
-    }
-    .title {
-      margin-bottom: 1.5rem;
-      @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-        margin-bottom: 0;
-      }
-    }
-    .subtitle {
-      margin-top: -0.75rem;
-    }
-    .description {
-      font-size: 1.125rem;
-      margin-bottom: 2rem;
-    }
+  }
+  .subtitle {
+    margin-top: -0.75rem;
+  }
+  .description {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
   }
 `
 
+const StyledImageDiv = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: none;
+  }
+  .graphic {
+    width: 27em;
+    margin-top: 1rem;
+    height: 25rem;
+  }
+  .profile-pic {
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+      display: none;
+    }
+  }
+`
 const AnimatedUnderlining = motion.custom(Underlining)
 
 const Hero = ({ content }) => {
@@ -110,49 +145,57 @@ const Hero = ({ content }) => {
   return (
     <StyledSection id="hero">
       <StyledContentWrapper>
-        <Img
-          className="profile-pic"
-          fluid={frontmatter.profileImage.childImageSharp.fluid}
-        />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={gControls}
-          data-testid="animated-heading"
-        >
-          <h1 className="title">
-            <div className="greetings">
-              {frontmatter.greetings}
-              <motion.div
-                animate={eControls}
-                style={{ originX: 0.7, originY: 0.7 }}
-              >
-                <Img
-                  className="emoji"
-                  fluid={frontmatter.icon.childImageSharp.fluid}
-                />
-              </motion.div>
-              {frontmatter.title}
-            </div>
-          </h1>
-          <h2 className="subtitle">
-            {frontmatter.subtitlePrefix}{" "}
-            <AnimatedUnderlining animate={uControls} big>
-              {frontmatter.subtitle}
-            </AnimatedUnderlining>
-          </h2>
-          <div className="description">
-            <MDXRenderer>{body}</MDXRenderer>
-          </div>
-        </motion.div>
-
-        <motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
-          <Social
-            fontSize=".95rem"
-            padding=".3rem 1.25rem"
-            width="auto"
-            withIcon
+        <StyledHeroDiv>
+          <Img
+            className="profile-pic"
+            fluid={frontmatter.profileImage.childImageSharp.fluid}
           />
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={gControls}
+            data-testid="animated-heading"
+          >
+            <h1 className="title">
+              <span className="greetings">
+                {frontmatter.greetings}
+                <motion.div
+                  animate={eControls}
+                  style={{ originX: 0.7, originY: 0.7 }}
+                >
+                  <Img
+                    className="emoji"
+                    fluid={frontmatter.icon.childImageSharp.fluid}
+                  />
+                </motion.div>
+              </span>
+              <span> {frontmatter.title}</span>
+            </h1>
+            <h2 className="subtitle">
+              {frontmatter.subtitlePrefix}{" "}
+              <AnimatedUnderlining animate={uControls} big>
+                {frontmatter.subtitle}
+              </AnimatedUnderlining>
+            </h2>
+            <div className="description">
+              <MDXRenderer>{body}</MDXRenderer>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
+            <Social
+              fontSize=".95rem"
+              padding=".3rem 1.25rem"
+              width="auto"
+              withIcon
+            />
+          </motion.div>
+        </StyledHeroDiv>
+        <StyledImageDiv>
+          <Img
+            className="profile-pic"
+            fluid={frontmatter.profileImage.childImageSharp.fluid}
+          />
+        </StyledImageDiv>
       </StyledContentWrapper>
     </StyledSection>
   )

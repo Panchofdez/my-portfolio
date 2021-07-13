@@ -44,9 +44,9 @@ const StyledContentWrapper = styled(ContentWrapper)`
       border-radius: ${({ theme }) => theme.borderRadius};
       color: #fff;
       z-index: 3;
-      padding: 3rem;
+      padding: 2.5rem;
       margin-top:1rem;
-      @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
         width:100%;
         padding:1.5rem;
       }
@@ -79,7 +79,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
         }
       }
     
-      @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
         height:25rem;
         width:100%;
         margin-bottom:3rem;

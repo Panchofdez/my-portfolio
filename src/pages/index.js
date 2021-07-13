@@ -93,6 +93,13 @@ export const pageQuery = graphql`
                 }
               }
             }
+            graphic {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
@@ -105,7 +112,7 @@ export const pageQuery = graphql`
             title
             images {
               childImageSharp {
-                fluid(maxWidth: 400, quality: 90) {
+                fluid {
                   ...GatsbyImageSharpFluid
                 }
               }

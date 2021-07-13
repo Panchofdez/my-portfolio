@@ -11,8 +11,9 @@ export const sharedPreferences = {
   borderRadius: "1rem",
   pageWidthSmall: "98rem",
   pageWidth: "90.5rem",
+  pageWidthLarge: "87rem",
 
-  headerHeight: "6.25rem",
+  headerHeight: "5.5rem",
   footerHeight: "7.5rem",
 }
 

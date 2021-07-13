@@ -50,6 +50,7 @@ const StyledProjectDetails = styled.div`
   padding-left: 1rem;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     margin: 0;
+    padding-left: 0rem;
   }
   ::-webkit-scrollbar {
     width: 30rem;
@@ -75,8 +76,11 @@ const StyledProjectDetails = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 0;
-    margin-right: 2rem;
-
+    margin-right: 1.5rem;
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      min-width: 19rem;
+      min-height: 29rem;
+    }
     .category {
       font-size: 0.875rem;
       line-height: 1rem;
@@ -128,9 +132,12 @@ const StyledProjectDetails = styled.div`
 
     display: flex;
     flex-direction: column;
-    margin-right: 2rem;
+    margin-right: 1.5rem;
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
       margin-top: 0;
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      margin-right: 1rem;
     }
     .screenshot {
       object-fit: cover;
@@ -143,10 +150,6 @@ const StyledProjectDetails = styled.div`
       &:hover {
         transform: translate3d(0px, -0.125rem, 0px);
         box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.32);
-      }
-      @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-        height: 30rem;
-        width: 20rem;
       }
     }
   }
@@ -188,7 +191,7 @@ const PersonalProjects = ({ content }) => {
   const sectionDetails = content[0].node
   const projects = content.slice(1, content.length)
   return (
-    <StyledSection id="___SectionHashId___">
+    <StyledSection id="projects">
       <StyledContentWrapper>
         <h2 style={{ marginBottom: 1 }}>Personal Projects</h2>
         {/* ____SectionContent____ */}
