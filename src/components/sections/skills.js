@@ -79,9 +79,7 @@ const Skills = ({ content }) => {
                 </header>
                 <div className="tags">
                   {interest.technologies.map((tech, idx) => (
-                    <a href="#" key={idx}>
-                      {tech}
-                    </a>
+                    <a key={idx}>{tech}</a>
                   ))}
                 </div>
               </article>
