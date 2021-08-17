@@ -31,7 +31,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       align-items: start;
     }
     .section-title {
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       color: #fff;
     }
     .inner-wrapper {
